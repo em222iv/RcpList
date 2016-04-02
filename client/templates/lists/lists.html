@@ -1,0 +1,20 @@
+<template name="lists">
+   <h1>Lists</h1>
+   <input id="name" type="text" placeholder="Add...">
+   <div class="add-list">Add</div>
+   {{#each lists}}
+       <div class="item">
+           <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
+           <div class="content">
+               <a id="list-name">{{name}}</a>
+               {{#each listIngredients}}
+                  {{listIngredient}}
+               {{/each}}
+               <div id={{_id}} class="remove-list">Rem</div>
+           </div>
+       </div>
+     {{else}}
+         No Lists
+   {{/each}}
+   <a href="{{pathFor '/Ingredients'}}">Ingredients</a>
+</template>

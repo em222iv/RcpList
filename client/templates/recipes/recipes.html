@@ -1,0 +1,19 @@
+<template name="recipes">
+   <h1>RECIPES</h1>
+   <input id="name" type="text" placeholder="Add...">
+   <div class="add-recipe">Add</div>
+   {{#each recipes}}
+       <div class="item">
+           <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
+           <div class="content">
+               <a id="recipe-name">{{name}}</a>
+               <div id={{_id}} class="remove-recipe">Rem</div>
+           </div>
+       </div>
+     {{else}}
+         No Recipes
+   {{/each}}
+    <a href="{{pathFor '/Ingredients'}}">Ingredients</a>
+    <a href="{{pathFor '/Recipes'}}">Recipes</a>
+    <a href="{{pathFor '/Lists'}}">Lists</a>
+</template>
