@@ -1,3 +1,49 @@
 <template name="header">
-  <h1>Header</h1>
+    <div class="dummy-sidebar">
+        <div class="checkout">
+            <div id="current-list">
+                {{#with List}}
+                <a class="checkout__button" href="#">{{name}}</a> {{/with}}
+            </div>
+            <div class="checkout__order">
+                <div class="checkout__order-inner">
+                    <table class="checkout__summary">
+                        <thead>
+                            <tr>
+                                <th>Current List:</th>
+                              <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">Amount of Ingredients:
+                                  <span class="checkout__total">
+                                  {{#with List}}
+                                    {{listIngredients.length}}
+
+                                  {{/with}}
+                                </span>
+                              </th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            {{#with List}} {{#each listIngredients}}
+                            <tr>
+                                <td><strong> {{listIngredient}}</strong></td>
+                                <div id="{{listIngredient}}" class="remove-ingredient">Rem</div>
+                                <td>{{ingredientAmount}}</td>
+                            </tr>
+                            {{/each}}  {{/with}}
+                        </tbody>
+                    </table>
+                    <!-- /checkout__summary -->
+                    <button class="checkout__option checkout__option--silent checkout__cancel"><i class="fa fa-angle-left"></i> Continue shopping</button>
+                </div>
+                <!-- /checkout__order-inner -->
+            </div>
+            <!-- /checkout__order -->
+        </div>
+        <!-- /checkout -->
+        <div class="dummy-sidebar__overlay"></div>
+    </div>
 </template>

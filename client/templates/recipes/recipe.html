@@ -1,0 +1,13 @@
+<template name="recipe">
+    <div>
+        {{#with recipe}}
+          <h3>{{name}}</h3>
+         <a href="/recipes/{{_id}}/edit" id="recipe-name">Edit</a>
+          {{#each recipeIngredients}}
+            <div>{{recipeIngredient}} {{ingredientAmount}}</div>
+          {{else}}
+            This Recipe has no Ingredients
+          {{/each}}
+          {{/with}}
+    </div>
+</template>

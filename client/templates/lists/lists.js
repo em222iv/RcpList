@@ -8,17 +8,6 @@ Template.lists.helpers({
 });
 
 Template.lists.events({
-  "click .add-list": (event) => {
-    // Prevent default browser form submit
-    if(document.getElementById("name").value.length < 1){
-      console.log('noh weh joseh');
-      return;
-    }
-
-    event.preventDefault();
-    console.log(document.getElementById("name").value);
-    Meteor.call("addList", document.getElementById("name").value);
-  },
   "click .remove-list": (event) => {
     // Prevent default browser form submit
     event.preventDefault();
@@ -26,5 +15,8 @@ Template.lists.events({
   },
   'input .list-title-update': (event) => {
       Meteor.call("updateListTitle", this._id, event.target.value);
+  },
+  'click .set-current-list': (event) => {
+      Session.set('currentList',Lists.findOne(event.currentTarget.id));
   }
 });

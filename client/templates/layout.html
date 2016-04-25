@@ -1,5 +1,12 @@
+<head>
+    <title>RCP</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+</head>
 <template name="layout">
   <div id="content">
+    <a href="{{pathFor '/Ingredients'}}">Ingredients</a>
+    <a href="{{pathFor '/Recipes'}}">Recipes</a>
+    <a href="{{pathFor '/Lists'}}">Lists</a>
     {{> Template.dynamic template=header}}
     {{> Template.dynamic template=main}}
     {{> Template.dynamic template=footer}}

@@ -1,20 +1,16 @@
 <template name="ingredients">
-   <h1>INGREDIENTS</h1>
-   <input id="name" type="text" placeholder="Add...">
-   <div class="add-ingredient">Add</div>
-  {{#each ingredients}}
-       <div class="item">
-           <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
-           <div class="content">
-               <a id="ingre-name">{{name}}</a>
-               <div class="remove-ingredient">Rem</div>
-               <div id={{name}} class="add-ingredient-to-list">Add to List</div>
-           </div>
-       </div>
-     {{else}}
-         No Lists
-     {{/each}}
-     <a href="{{pathFor '/Ingredients'}}">Ingredients</a>
-     <a href="{{pathFor '/Recipes'}}">Recipes</a>
-     <a href="{{pathFor '/Lists'}}">Lists</a>
+    <h1>INGREDIENTS</h1>
+    {{ > input addAction="add-ingredient"}}
+    <div id="ingredient-content">
+    {{#each ingredients}}
+    <div class="item">
+        <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
+        <div class="ingredient-content">
+            <a id="ingre-name">{{name}}</a> |
+            <div id={{_id}} class="remove-ingredient">Rem</div> |
+            <div id={{name}} class="add-ingredient-to-list">Add to List</div>
+        </div>
+    </div>
+    {{else}} No Lists {{/each}}
+    </div>
 </template>

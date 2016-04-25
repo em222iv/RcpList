@@ -6,7 +6,10 @@
        <div class="item">
            <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
            <div class="content">
-               <a id="recipe-name">{{name}}</a>
+               <a href="/recipes/{{_id}}" id="recipe-name">{{name}}</a>
+               <div>
+                 <a href="/recipes/{{_id}}/edit" id="recipe-name">Edit</a>
+               </div>
                <div id={{_id}} class="remove-recipe">Rem</div>
            </div>
        </div>

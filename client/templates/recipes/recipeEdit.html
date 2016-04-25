@@ -1,0 +1,17 @@
+<template name="recipeEdit">
+    <div>
+      {{#with recipe}}
+        <h3>{{name}}</h3>
+      {{/with}}
+      {{#each ingredients}}
+      <div class="item">
+          <!-- <img class="ui avatar image" src="/img/dog.jpg"> -->
+          <div class="ingredient-content">
+              <a id="ingre-name">{{name}}</a> |
+              <div id={{_id}} class="remove-ingredient">Rem</div> |
+              <div id={{name}} class="add-ingredient-to-recipe">Add to Recipe</div>
+          </div>
+      </div>
+      {{else}} No Lists {{/each}}
+    </div>
+</template>
