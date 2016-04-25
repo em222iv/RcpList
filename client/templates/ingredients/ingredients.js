@@ -1,12 +1,4 @@
 Template.ingredients.onRendered(() => {
-    // var self = this;
-    // self.autorun(function() {∏
-    //     var latLng = Geolocation.latLng();
-    //     if (latLng != null){
-    //         Session.set('latLng', latLng);
-    //         console.log(Session.get('latLng'));
-    //     }
-    // })
 
 });
 Template.ingredients.helpers({

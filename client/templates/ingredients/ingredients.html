@@ -1,5 +1,8 @@
 <template name="ingredients">
     <h1>INGREDIENTS</h1>
+    {{#each users}}
+      {{username}}
+    {{/each}}
     {{ > input addAction="add-ingredient"}}
     <div id="ingredient-content">
     {{#each ingredients}}

@@ -23,3 +23,8 @@ erasaur:meteor-lodash
 seba:minifiers-autoprefixer
 fourseven:scss
 reactive-dict
+
+accounts-password
+useraccounts:flow-routing
+alanning:roles
+cwaring:modernizr

@@ -4,6 +4,11 @@
 </head>
 <template name="layout">
   <div id="content">
+    <p>Welcome {{currentUser.username}}!</p>
+    {{#each users}}
+      <h3>{{username}}</h3>
+    {{/each}}
+    <div id="logout">logout</div>
     <a href="{{pathFor '/Ingredients'}}">Ingredients</a>
     <a href="{{pathFor '/Recipes'}}">Recipes</a>
     <a href="{{pathFor '/Lists'}}">Lists</a>

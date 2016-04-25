@@ -5,12 +5,15 @@ Meteor.methods({
             console.log('Noh Weh Joseh');
             return;
         }
-        Lists.insert({
+        let list = Lists.insert({
             name: name,
             author: "Author",
             listIngredients: [],
             createdAt: new Date() // current time
         });
+        console.log(list);
+        Meteor.users.update(Meteor.userId(), {$push: {'profile.lists': list}});
+
     },
     removeList: function(id) {
         // Remove a list into the collection
