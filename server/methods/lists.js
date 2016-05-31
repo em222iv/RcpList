@@ -5,19 +5,34 @@ Meteor.methods({
             console.log('Noh Weh Joseh');
             return;
         }
-        let list = Lists.insert({
+        let list = {
+            _id: Random.id(),
             name: name,
-            author: "Author",
+            author: Meteor.user().username,
             listIngredients: [],
             createdAt: new Date() // current time
+        };
+
+        Meteor.users.update(Meteor.userId(), {
+            $push: {
+                'profile.lists': list
+            }
         });
-        console.log(list);
-        Meteor.users.update(Meteor.userId(), {$push: {'profile.lists': list}});
 
     },
     removeList: function(id) {
         // Remove a list into the collection
-        Lists.remove(id);
+        // Lists.remove(id);
+        // var list;
+        //
+        Meteor.users.update(Meteor.userId(), {
+            $pull: {
+                'profile.lists': {
+                    '_id': id
+                }
+            }
+        });
+        console.log(list)
     },
     updateListTitle: function(id, title) {
         // Update a list into the collection
@@ -44,16 +59,24 @@ Meteor.methods({
     },
     addIngredientToList: function(id, ingredient) {
 
-        return Lists.update({
-            _id: id
-        }, {
-            $push: {
-                'listIngredients': {
-                    listIngredient: ingredient,
-                    ingredientAmount: 1
-                }
-            }
-        });
+        // return Lists.update({
+        //     _id: id
+        // }, {
+        //     $push: {
+        //         'listIngredients': {
+        //             listIngredient: ingredient,
+        //             ingredientAmount: 1
+        //         }
+        //     }
+        // });
+        if (ingredient.length < 1) {
+            console.log('Noh Weh Joseh');
+            return;
+        }
+
+        Meteor.users.update(
+          {'_id': Meteor.userId(),'list.listIngredients'}
+        );
     },
     removeIngredientFromList: function(id, ingredient) {
         // Update a list into the collection
@@ -64,6 +87,14 @@ Meteor.methods({
                 'listIngredients': {
                     listIngredient: ingredient
                 }
+            }
+        });
+    },
+    UsercurrentList: function(list) {
+        // Update a list into the collection
+        return Meteor.users.update(Meteor.userId(), {
+            $set: {
+                'profile.currentList': list
             }
         });
     }

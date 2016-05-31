@@ -34,7 +34,6 @@ Meteor.methods({
                 }
             }
         });
-              console.log(Recipes.findOne(id));
     },
     removeIngredientFromRecipe: function(id, ingredient) {
         // Update a list into the collection

@@ -5,6 +5,7 @@
 // ////
 if (Lists.find().count() === 0) {
 
+  let lists = [];
  Lists.insert({
    name: "Inköpslista för festen",
    author: "Derpina",

@@ -7,5 +7,12 @@ Meteor.startup(() => {
   //        object.remove({});
   //    }
   // }
+  // var globalObject=Meteor.isClient?window:global;
+  // for(var property in globalObject){
+  //     var object=globalObject[property];
+  //     if(object instanceof Meteor.Collection){
+  //         object.rawCollection().drop();
+  //     }
+  // }
 
 });

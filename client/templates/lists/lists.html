@@ -1,7 +1,7 @@
 <template name="lists">
     <h1>Lists</h1>
     {{ > input addAction="add-list"}}
-    {{#each lists}}
+      {{#each userLists}}
     <div class="item">
         <div class="content">
             <a id="list-name">{{name}}</a> {{#each listIngredients}} {{listIngredient}} {{/each}}

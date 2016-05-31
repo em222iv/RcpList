@@ -13,16 +13,15 @@ Template.header.helpers({
         });
     },
     List: () => {
-        if (Session.get('currentList') === undefined) {
-            Session.set('currentList', Lists.findOne({}, {
-                sort: {
-                    createdAt: -1
-                }
-            }));
-        } else {
-            Session.set('currentList', Lists.findOne(Session.get('currentList')._id));
+      if (Meteor.user()){
+          if (Session.get('currentList') === undefined) {
+
+                Session.set('currentList', Meteor.user().profile.currentList);
+          } else {
+                Session.set('currentList', Meteor.user().profile.currentList);
+          }
+          return Session.get('currentList');
         }
-        return Session.get('currentList');
     }
 });
 
